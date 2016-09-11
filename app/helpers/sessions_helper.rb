@@ -13,8 +13,9 @@ module SessionsHelper
   def logged_in?
     !current_user.nil?
   end
+  
   # Logs out user
   def logout(user)
-    User.find_by(id: session[:user_id]).destroy
+    session[:user_id] = nil
   end
 end
