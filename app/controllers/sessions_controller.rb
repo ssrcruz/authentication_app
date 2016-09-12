@@ -14,10 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    user = User.find_by(email: params[:session])
-    if logged_in?
-      logout user
-      redirect_to root_path
-    end
+    logout
+    redirect_to root_url
   end
 end
