@@ -72,4 +72,13 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
   end
+
+  test 'associated students should be destroyed' do
+    @user.save
+    @user.students.create!(name: "Lorem ipsum")
+    assert_difference 'Student.count', -1 do
+      @user.destroy
+    end
+  end
+
 end

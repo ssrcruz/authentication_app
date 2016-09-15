@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+john:
+  name: John The Baptist
+  created_at: <%= 2.years.ago %>
+
+scubasteve:
+  name: Scuba Steve
+  created_at: <%= 2.hours.ago %>
+
+most_recent:
+  name: Koala The Great
+  created_at: <%= Time.zone.now %>
