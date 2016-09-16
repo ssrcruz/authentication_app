@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160912181946) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "parents", ["student_id", "created_at"], name: "index_parents_on_student_id_and_created_at"
   add_index "parents", ["student_id"], name: "index_parents_on_student_id"
 
   create_table "students", force: :cascade do |t|
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160912181946) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "students", ["user_id", "created_at"], name: "index_students_on_user_id_and_created_at"
   add_index "students", ["user_id"], name: "index_students_on_user_id"
 
   create_table "users", force: :cascade do |t|

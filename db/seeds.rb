@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+users = User.order(:created_at).take(1)
+10.times do
+  name = Faker::Name.name
+  users.each { |user| user.students.create!(name: name) }
+end
