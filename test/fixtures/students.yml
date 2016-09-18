@@ -3,11 +3,14 @@
 john:
   name: John The Baptist
   created_at: <%= 2.years.ago %>
+  user: bleejay
 
 scubasteve:
   name: Scuba Steve
   created_at: <%= 2.hours.ago %>
-
+  user: bleejay
+  
 most_recent:
   name: Koala The Great
   created_at: <%= Time.zone.now %>
+  user: bleejay
