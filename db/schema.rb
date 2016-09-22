@@ -11,24 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912181946) do
-
-  create_table "parents", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.integer  "student_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "parents", ["student_id", "created_at"], name: "index_parents_on_student_id_and_created_at"
-  add_index "parents", ["student_id"], name: "index_parents_on_student_id"
+ActiveRecord::Schema.define(version: 20160912181629) do
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
+    t.string   "parent_name"
+    t.string   "parent_email"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "students", ["user_id", "created_at"], name: "index_students_on_user_id_and_created_at"

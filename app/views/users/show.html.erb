@@ -15,9 +15,7 @@
   <div class="col-md-8">
     <% if @user.students.any? %>
       <h3>Students (<%= @user.students.count %>) </h3>
-      <ol class="students">
-        <%= render @students %>
-      </ol>
+        <%= render 'shared/student_info' %>
     <% end %>
   </div>
 </div>

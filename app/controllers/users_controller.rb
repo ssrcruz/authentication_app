@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @students = @user.students
+    @students = @user.students.all
     @student = current_user.students.build if logged_in?
   end
 

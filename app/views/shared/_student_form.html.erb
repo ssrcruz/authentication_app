@@ -2,6 +2,8 @@
     <%= render 'shared/error_messages', object: f.object %>
     <div class="field">
       <%= f.text_field :name, placeholder: "Add new student" %>
+      <%= f.text_field :parent_name, placeholder: "Add new parent name" %>
+      <%= f.email_field :parent_email, placeholder: "Add new parent email" %>
     </div>
     <%= f.submit "Add", class: "btn btn-primary" %>
 <% end %>
