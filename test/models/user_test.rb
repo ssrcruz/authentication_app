@@ -75,7 +75,7 @@ class UserTest < ActiveSupport::TestCase
 
   test 'associated students should be destroyed' do
     @user.save
-    @user.students.create!(name: "Lorem ipsum")
+    @user.students.create!(name: "Lorem ipsum", parent_name: "parent name", parent_email: "parent@email.com")
     assert_difference 'Student.count', -1 do
       @user.destroy
     end

@@ -4,7 +4,7 @@ class StudentTest < ActiveSupport::TestCase
 
   def setup
     @user = users(:bleejay)
-    @student = @user.students.build(name: "Ruben Cruz")
+    @student = @user.students.build(name: "Ruben Cruz", parent_name: "Parent Name", parent_email: "parent@email.com")
   end
 
   test 'should be valid' do
@@ -21,15 +21,18 @@ class StudentTest < ActiveSupport::TestCase
     assert_not @student.nil?
   end
 
+  test 'parent name should be present' do
+    @student.parent_name = nil
+    assert_not @student.nil?
+  end
+
+  test 'parent email should be present' do
+    @student.parent_email = nil
+    assert_not @student.nil?
+  end
+
   test 'order should be most recent first' do
     assert_equal students(:most_recent), Student.first
   end
 
-  test 'associated parents should be destroyed' do
-    @student.save
-    @student.parents.create!(name: "Scuba Steve's Mom", email: "ssteve@aol.com")
-    assert_difference "Parent.count", -1 do
-      @student.destroy
-    end
-  end
 end
